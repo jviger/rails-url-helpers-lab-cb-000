@@ -13,4 +13,10 @@ class StudentsController < ApplicationController
     def set_student
       @student = Student.find(params[:id])
     end
+    
+    def activate
+    @student = Student.find(params[:id])
+    @student.update_attributes(active: 1)
+    redirect_to projects_path(submitreview: false)
+    end
 end
